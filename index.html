@@ -2,9 +2,9 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NCT Tuning</title>
-  <!-- Google Font Poppins -->
+  <!-- Google Font Roboto -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,369 +13,118 @@
       --primary-color: #e74c3c;
       --bg-color: #000;
       --text-light: #fff;
+      --text-muted: #aaa;
+      --separator-color: #444;
     }
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
-    body {
-      background-color: #fff;
-      color: #333;
-      padding-bottom: 80px;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+    body { background: #fff; color: #333; padding-bottom: 65px; }
 
-    /* ========== HEADER ========== */
+    /* HEADER */
     header.site-header {
-      position: sticky; top: 0;
-      background: var(--bg-color);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      z-index: 1000;
+      position: sticky; top: 0; background: var(--bg-color); z-index: 1000;
     }
     .header-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 80px; padding: 0 20px;
+      max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;
+      height: 60px; padding: 0 20px;
     }
-    .nav-left, .nav-right { display: flex; gap: 30px; }
+    .nav-left, .nav-right { display: flex; align-items: center; }
     .nav-left a, .nav-right a {
-      position: relative;
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 15px;
-      padding: 5px 0;
-      transition: color 0.3s;
+      color: #fff; text-decoration: none; font-size: 15px; text-transform: uppercase;
+      padding: 0 5px; transition: color 0.2s;
     }
-    .nav-left a::after, .nav-right a::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0;
-      width: 0; height: 2px;
-      background: var(--primary-color);
-      transition: width 0.3s;
+    .nav-left a:hover, .nav-right a:hover { color: var(--text-light); }
+    .nav-left a + a::before, .nav-right a + a::before {
+      content: ''; width: 1px; height: 14px; background: var(--separator-color);
+      display: inline-block; margin: 0 10px; vertical-align: middle;
     }
-    .nav-left a:hover, .nav-right a:hover { color: var(--primary-color); }
-    .nav-left a:hover::after, .nav-right a:hover::after { width: 100%; }
-    .logo-container img { height: 60px; display: block; }
-    .search-btn {
-      background: none; border: none;
-      color: var(--text-light);
-      font-size: 18px; cursor: pointer;
-      transition: color 0.3s;
-    }
-    .search-btn:hover { color: var(--primary-color); }
+    .logo-container img { height: 53px; }
+    .search-btn { background: none; border: none; color: var(--text-muted); font-size: 16px; cursor: pointer; transition: color 0.2s; }
+    .search-btn:hover { color: var(--text-light); }
 
-    /* ========== HERO SECTION ========== */
-    .hero-section {
-      position: relative;
-      height: 400px;
-      background-color: #000;
-      overflow: hidden;
-    }
-    .hero-image { position: relative; width: 100%; height: 100%; }
-    .hero-image .slide {
-      position: absolute; top:0; left:0;
-      width:100%; height:100%;
-      background-size:cover;
-      background-position:center;
-      opacity:0; transition: opacity 0.7s ease-in-out;
-      z-index:0;
-    }
-    .hero-image .slide.active {
-      opacity:1; z-index:1;
-    }
-
-    /* ========== BRANDS ========== */
+    /* HERO + BRANDS */
+    .hero-section { position: relative; height: 400px; background: #000; overflow: hidden; }
+    .hero-image .slide { position: absolute; top:0; left:0; width:100%; height:100%; background-size:cover; background-position:center; opacity:0; transition: opacity 0.7s ease-in-out; }
+    .hero-image .slide.active { opacity:1; }
     .brands {
-      position: absolute; bottom:20px; left:50%;
-      transform: translateX(-50%);
+      position: absolute; bottom:20px; left:50%; transform:translateX(-50%);
       display:flex; flex-wrap:wrap; justify-content:center; gap:28px;
-      width:900px;
-      background: rgba(255,255,255,0.6);
-      padding:12px 24px;
-      border-radius:20px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.2);
-      z-index:5;
+      width:900px; background: rgba(255,255,255,0.6); padding:12px 24px; border-radius:20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-    .brands img {
-      height:55px;
-      display:block;
-      filter: grayscale(1);
-      transition: filter 0.3s;
-    }
-    .brands img:hover { filter: grayscale(0); }
+    .brands img { height:55px; filter:grayscale(1); transition:filter 0.3s; }
+    .brands img:hover { filter:grayscale(0); }
 
-    /* ========== TEAM SECTION ========== */
-    .team-section {
-      background-color: #111;
-      color: #fff;
-      padding: 60px 40px;
-    }
-    .team-header {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 40px;
-    }
-    .team-header h2 {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-    .team-header p {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #ccc;
-    }
-    .team-container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 60px;
-      flex-wrap: wrap;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .team-content { flex: 0 0 360px; }
-    .team-image { flex: 0 0 400px; text-align: center; }
-    .team-image img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    .team-item {
-      display:flex; align-items:flex-start; gap:20px; margin-bottom:30px;
-    }
-    .team-item i {
-      font-size:32px; color:var(--primary-color);
-      min-width:40px;
-    }
-    .team-item h3 {
-      font-size:24px; margin-bottom:8px;
-    }
-    .team-item p {
-      font-size:16px; line-height:1.6;
-    }
-    @media (max-width:768px) {
-      .team-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-    }
+    /* TEAM */
+    .team-section { background: #2d2818; color: #fff; padding: 60px 40px;margin-top: 4px; }
+    .team-header { text-align:center; max-width:800px; margin:0 auto 40px; }
+    .team-header h2 { font-size:32px; margin-bottom:12px; }
+    .team-header p { font-size:16px; line-height:1.6; color:#ccc;  font-style: italic;}
+    .team-container { display:flex; flex-wrap:wrap; justify-content:center; gap:60px; max-width:1000px; margin:0 auto; }
+    .team-content { flex:1 1 300px; }
+    .team-image { flex:1 1 300px; text-align:center; }
+    .team-image img { max-width:100%; border-radius:8px; }
+    .team-item { display:flex; align-items:flex-start; gap:20px; margin-bottom:30px; }
+    .team-item i { font-size:32px; color:var(--primary-color); min-width:40px; }
+    .team-item h3 { font-size:24px; margin-bottom:8px; }
+    .team-item p { font-size:16px; line-height:1.6;  font-style: italic;}
+    @media(max-width:768px){ .team-item { flex-direction:column; align-items:center; text-align:center; }}
 
-    /* ========== SERVICES ========== */
-    .service-section {
-      padding: 60px 40px;
-      background-color: #1a1a1a;
-      color: #fff;
-    }
-    .service-section h2 {
-      text-align:center;
-      font-size:36px;
-      margin-bottom:50px;
-    }
-    .service-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-      gap:40px;
-      max-width:1200px;
-      margin:0 auto;
-    }
-    .service-box {
-      background:#2a2a2a;
-      border-radius:10px;
-      overflow:hidden;
-      text-align:center;
-      transition:transform 0.3s, box-shadow 0.3s;
-    }
-    .service-box:hover {
-      transform: translateY(-5px);
-      box-shadow:0 4px 20px rgba(0,0,0,0.4);
-    }
-    .service-box img {
-      width:100%; height:260px;
-      object-fit:cover;
-      display:block;
-    }
-    .service-box p {
-      padding:22px;
-      font-size:20px;
-      font-weight:600;
-      border-top:1px solid #444;
-    }
-    .service-box a {
-      color:#fff; text-decoration:none;
-      transition: color 0.3s;
-    }
-    .service-box a:hover {
-      color:var(--primary-color);
-    }
 
-    /* ========== NEWS ========== */
-    .news-section {
-      padding: 60px 40px;
-      background-color: #f4f4f4;
-    }
-    .news-section h2 {
-      text-align:center;
-      font-size:36px;
-      margin-bottom:40px;
-      color:#000;
-    }
-    .news-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-      gap:30px;
-      max-width:1200px;
-      margin:0 auto;
-    }
-    .news-item {
-      background:#fff;
-      border-radius:10px;
-      overflow:hidden;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    }
-    .news-item img {
-      width:100%; height:150px;
-      object-fit:cover;
-      display:block;
-    }
-    .news-item .content {
-      padding:20px;
-    }
-    .news-item h3 {
-      font-size:18px;
-      margin-bottom:10px;
-    }
-    .news-item p {
-      font-size:14px;
-      color:#333;
-    }
+    /* SERVICES */
+    .service-section { background:#282414; color:#fff; padding:60px 40px;margin-top: 4px; }
+    .service-section h2 { text-align:center; font-size:36px; margin-bottom:50px; }
+    .service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:40px; max-width:1200px; margin:0 auto; }
+    .service-box { background:#2a2a2a; border-radius:10px; overflow:hidden; text-align:center; transition:transform 0.3s,box-shadow 0.3s; }
+    .service-box:hover { transform:translateY(-5px); box-shadow:0 4px 20px rgba(0,0,0,0.4); }
+    .service-box img { width:100%; height:260px; object-fit:cover; }
+    .service-box p { padding:22px; font-size:20px; font-weight:600; border-top:1px solid#444; }
+    .service-box a { color:#fff; text-decoration:none; }
 
-    /* ========== FOOTER ========== */
-    .footer {
-      background: linear-gradient(135deg, #1a1a1a 0%, #111 100%);
-      color: #ddd;
-      padding: 60px 40px 20px;
-    }
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .footer-col h4 {
-      font-size: 18px;
-      margin-bottom: 16px;
-      color: #fff;
-      position: relative;
-    }
-    .footer-col h4::after {
-      content: '';
-      width: 40px;
-      height: 2px;
-      background: var(--primary-color);
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-    }
-    .footer-col p, .footer-col a {
-      font-size: 14px;
-      color: #ccc;
-      margin-bottom: 8px;
-      display: block;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .footer-col a:hover {
-      color: var(--primary-color);
-    }
-    .social-icons {
-      display: flex;
-      gap: 12px;
-      margin-top: 12px;
-    }
-    .social-icons a {
-      font-size: 20px;
-      color: #ccc;
-      transition: color 0.3s;
-    }
-    .social-icons a:hover {
-      color: var(--primary-color);
-    }
-    .newsletter {
-      margin-top: 12px;
-      display: flex;
-    }
-    .newsletter input {
-      flex: 1;
-      padding: 8px 12px;
-      border: none;
-      border-radius: 4px 0 0 4px;
-    }
-    .newsletter button {
-      padding: 8px 16px;
-      border: none;
-      background: var(--primary-color);
-      color: #fff;
-      border-radius: 0 4px 4px 0;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .footer-bottom {
-      border-top: 1px solid #444;
-      margin-top: 40px;
-      padding-top: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      font-size: 14px;
-      color: #777;
-    }
-    .footer-bottom a.back-to-top {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s;
-    }
-    .footer-bottom a.back-to-top i {
-      margin-right: 5px;
-    }
-    .footer-bottom a.back-to-top:hover {
-      color: var(--primary-color);
-    }
-    @media (max-width: 768px) {
-      .footer-container { grid-template-columns: 1fr; text-align: center; }
-      .footer-bottom { flex-direction: column; gap: 10px; }
-    }
+    /* NEWS */
+    .news-section { background: linear-gradient(1deg, #ffe9c8, #ffffff);margin-bottom: 5px; padding:60px 40px; }
+    .news-section h2 { text-align:center; font-size:36px; margin-bottom:40px; color:#000; }
+    .news-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; max-width:1200px; margin:0 auto; }
+    .news-item { background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+    .news-item img { width:100%; height:150px; object-fit:cover; }
+    .news-item .content { padding:20px; }
+    .news-item h3 { font-size:18px; margin-bottom:10px; }
+    .news-item p { font-size:14px; color:#333; }
 
-    /* ========== CONTACT BAR ========== */
+    /* FOOTER */
+    .footer { background:linear-gradient(135deg,#1a1a1a 0%,#111 100%); color:#ddd; padding:60px 40px 20px; }
+    .footer-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; max-width:1200px; margin:0 auto; }
+    .footer-col h4 { font-size:18px; margin-bottom:16px; color:#fff; position:relative; }
+    .footer-col h4::after { content:''; width:40px; height:2px; background:var(--primary-color); position:absolute; bottom:-6px; left:0; }
+    .footer-col p, .footer-col a { font-size:14px; color:#ccc; margin-bottom:8px; display:block; text-decoration:none; transition:color 0.3s; }
+    .footer-col a:hover { color:var(--primary-color); }
+    .social-icons { display:flex; gap:12px; margin-top:12px; }
+    .social-icons a { font-size:20px; color:#ccc; transition:color 0.3s; }
+    .social-icons a:hover { color:var(--primary-color); }
+    .newsletter { display:flex; margin-top:12px; }
+    .newsletter input { flex:1; padding:8px 12px; border:none; border-radius:4px 0 0 4px; }
+    .newsletter button { padding:8px 16px; background:var(--primary-color); color:#fff; border:none; border-radius:0 4px 4px 0; cursor:pointer; }
+    .newsletter button:hover { background:#c0392b; }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:20px; border-top:1px solid #444; max-width:1200px; margin:20px auto 0; font-size:14px; color:#777; }
+    .footer-bottom a.back-to-top { color:#ccc; text-decoration:none; }
+    .footer-bottom a.back-to-top i { margin-right:5px; }
+    .footer-bottom a.back-to-top:hover { color:var(--primary-color); }
+    @media(max-width:768px){ .footer-container{grid-template-columns:1fr;text-align:center;} .footer-bottom{flex-direction:column;gap:10px;} }
+
+    /* CONTACT BAR */
     .contact-bar {
-      position: fixed;
-      bottom: 0; left: 0;
-      width: 100%;
-      background-color: #f8f8f8;
-      padding: 20px;
-      text-align: center;
-      font-size: 18px;
-      border-top: 1px solid #ccc;
-      z-index: 999;
+      position:fixed; bottom:0; left:0; width:100%;
+      background:linear-gradient(90deg,#000,#88704d); background-size:200% 200%;
+      display:flex; justify-content:center; align-items:center;
+      gap:20px; padding:8px; color:#fff; font-size:18px;
+      opacity:0; transform:translateY(100%);
+      animation:gradientBG 1.5s ease infinite, fadeInUp 0.2s ease-out forwards;
+      z-index:999;
     }
-    .contact-bar span { margin-right: 20px; }
-    .contact-bar button {
-      padding: 10px 20px;
-      background-color: var(--primary-color);
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: background 0.3s;
-    }
-    .contact-bar button:hover {
-      background-color: darken(var(--primary-color), 10%);
-    }
+    @keyframes gradientBG {0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    @keyframes fadeInUp { to{opacity:1;transform:translateY(0);} }
+    .contact-bar .cta-btn { background:#fff; color:#e74c3c; border:none; padding:12px 24px; font-size:16px; font-weight:600; border-radius:30px; display:flex; align-items:center; gap:10px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2); animation:pulse 2s infinite; transition:transform 0.2s; }
+    .contact-bar .cta-btn:hover { transform:scale(1.05); }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0.7);} 50%{box-shadow:0 0 0 10px rgba(255,255,255,0);} }
   </style>
 </head>
 <body>
@@ -389,7 +138,7 @@
         <a href="#">Tin tức</a>
       </nav>
       <div class="logo-container">
-        <img src="./anhcuong/logo.jpg" alt="NCT Tuning Logo">
+        <img src="./anhcuong/logo.jpg" alt="NCTuning Logo">
       </div>
       <nav class="nav-right">
         <a href="#">Về chúng tôi</a>
@@ -403,8 +152,8 @@
   <section class="hero-section">
     <div class="hero-image">
       <div class="slide active" style="background-image:url('./anhcuong/anhbia1.jpg')"></div>
-      <div class="slide"        style="background-image:url('./anhcuong/anhbia2.jpg')"></div>
-      <div class="slide"        style="background-image:url('./anhcuong/anhbia3.jpg')"></div>
+      <div class="slide" style="background-image:url('./anhcuong/anhbia2.jpg')"></div>
+      <div class="slide" style="background-image:url('./anhcuong/anhbia3.jpg')"></div>
     </div>
     <div class="brands">
       <img src="./anhcuong/mer.png" alt="Mercedes">
@@ -418,7 +167,7 @@
     </div>
   </section>
 
-  <!-- TEAM SECTION -->
+  <!-- TEAM -->
   <section class="team-section">
     <div class="team-header">
       <h2>Chào mừng bạn đến với NCTuning</h2>
@@ -426,44 +175,28 @@
     </div>
     <div class="team-container">
       <div class="team-content">
-        <div class="team-item">
-          <i class="fas fa-bullseye"></i>
-          <div>
-            <h3>10 NĂM KINH NGHIỆM</h3>
-            <p>Nhiều năm kinh nghiệm giúp chúng tôi hiểu mình cần làm điều gì tốt nhất cho quý khách hàng.</p>
-          </div>
-        </div>
-        <div class="team-item">
-          <i class="fas fa-cogs"></i>
-          <div>
-            <h3>CHUYÊN MÔN CAO</h3>
-            <p>Đội ngũ kỹ thuật viên tay nghề cao và giàu nhiệt huyết hứa hẹn sẽ mang tới chất lượng dịch vụ làm hài lòng quý khách.</p>
-          </div>
-        </div>
-        <div class="team-item">
-          <i class="fas fa-wrench"></i>
-          <div>
-            <h3>HỖ TRỢ TUYỆT VỜI</h3>
-            <p>Tâm huyết và nhiệt tình với khách hàng, chúng tôi cung cấp phong cách phục vụ chuyên nghiệp hàng đầu.</p>
-          </div>
-        </div>
+        <div class="team-item"><i class="fas fa-bullseye"></i><div><h3>10 NĂM KINH NGHIỆM</h3><p>Nhiều năm kinh nghiệm giúp chúng tôi hiểu mình cần làm điều gì tốt nhất cho quý khách hàng.</p></div></div>
+        <div class="team-item"><i class="fas fa-cogs"></i><div><h3>CHUYÊN MÔN CAO</h3><p>Đội ngũ kỹ thuật viên tay nghề cao và giàu nhiệt huyết hứa hẹn sẽ mang tới chất lượng dịch vụ làm hài lòng quý khách.</p></div></div>
+        <div class="team-item"><i class="fas fa-wrench"></i><div><h3>HỖ TRỢ TUYỆT VỜI</h3><p>Tâm huyết và nhiệt tình với khách hàng, chúng tôi cung cấp phong cách phục vụ chuyên nghiệp hàng đầu.</p></div></div>       
+	 <div class="team-item"><i class="fas fa-shield-alt"></i><div><h3>CHÍNH SÁCH BẢO HÀNH</h3><p>Chúng tôi tự hào mang đến chính sách bảo hành linh động và dài hạn, sẵn sàng tiếp nhận và xử lý nhanh chóng các sự cố kĩ thuật đơn giản và minh bạch. Trong suốt quá trình bảo hành, khách hàng được hưởng linh kiện chính hãng và hỗ trợ 24/7, giúp bạn luôn an tâm và tin tưởng tuyệt đối khi sử dụng dịch vụ của chúng tôi.</p></div></div>
       </div>
-      <div class="team-image">
-        <img src="./anhcuong/doingu.jpg" alt="Đội ngũ NCTuning">
-      </div>
+      <div class="team-image"><img src="./anhcuong/doingu.jpg" alt="Đội ngũ NCTuning"></div>
     </div>
   </section>
 
   <!-- SERVICES -->
   <section class="service-section">
-    <h2>Dịch vụ của chúng tôi</h2>
+    <h2> Dịch vụ của chúng tôi</h2>
     <div class="service-grid">
-      <div class="service-box"><a href="#"><img src="./anhcuong/body.jpg" alt="Bodykit"></a><p><a href="#">Bodykit, nâng đời &raquo;</a></p></div>
-      <div class="service-box"><a href="#"><img src="./anhcuong/option.jpg" alt="Option"></a><p><a href="#">Nâng cấp tính năng, option &raquo;</a></p></div>
-      <div class="service-box"><a href="#"><img src="./anhcuong/phukien.jpg" alt="Phụ kiện"></a><p><a href="#">Phụ kiện, đồ chơi &raquo;</a></p></div>
-      <div class="service-box"><a href="#"><img src="./anhcuong/mam.jpg" alt="Mâm & lốp"></a><p><a href="#">Mâm & lốp &raquo;</a></p></div>
-      <div class="service-box"><a href="#"><img src="./anhcuong/loa.jpg" alt="Âm thanh"></a><p><a href="#">Hệ thống âm thanh &raquo;</a></p></div>
-      <div class="service-box"><a href="#"><img src="./anhcuong/noithat.jpg" alt="Nội thất"></a><p><a href="#">Nâng cấp nội thất &raquo;</a></p></div>
+      <div class="service-box"><a href="#"><img src="./anhcuong/body.jpg" alt="Bodykit"></a><p><a href="#" class="read-more">
+  Bodykit, nâng đời
+  <i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i>
+</a></p></div>
+      <div class="service-box"><a href="#"><img src="./anhcuong/option.jpg" alt="Option"></a><p><a href="#">Nâng cấp tính năng, option </a><i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i></p></div>
+      <div class="service-box"><a href="#"><img src="./anhcuong/phukien.jpg" alt="Phụ kiện"></a><p><a href="#">Phụ kiện, đồ chơi <i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i></a></p></div>
+      <div class="service-box"><a href="#"><img src="./anhcuong/mam.jpg" alt="Mâm & lốp"></a><p><a href="#">Mâm & lốp <i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i></a></p></div>
+      <div class="service-box"><a href="#"><img src="./anhcuong/loa.jpg" alt="Âm thanh"></a><p><a href="#">Hệ thống âm thanh <i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i></a></p></div>
+      <div class="service-box"><a href="#"><img src="./anhcuong/noithat.jpg" alt="Nội thất"></a><p><a href="#">Nâng cấp nội thất <i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i></a></p></div>
     </div>
   </section>
 
@@ -471,75 +204,27 @@
   <section class="news-section">
     <h2>Các sản phẩm độc đáo</h2>
     <div class="news-grid">
-      <div class="news-item">
-        <img src="./anhcuong/noibatg63.jpg" alt="News 1">
-        <div class="content">
-          <h3>G63 độ bodykit Brabus 900 Rocket</h3>
-          <p>NCT Tuning chính thức mở rộng hoạt động tại miền Bắc với chi nhánh mới khai trương...</p>
-        </div>
-      </div>
-      <div class="news-item">
-        <img src="./anhcuong/noibatmec.jpg" alt="News 2">
-        <div class="content">
-          <h3>Độ bodykit Maybach </h3>
-          <p>NCT Tuning đồng hành cùng sự kiện siêu xe lớn nhất Việt Nam quy tụ hơn 50 mẫu xe độ...</p>
-        </div>
-      </div>
-      <div class="news-item">
-   <img src="./anhcuong/audi.jpg" alt="News 2">
-
-        <div class="content">
-          <h3> Độ bodykit Audi TT</h3>
-          <p>Chương trình khuyến mãi hấp dẫn với nhiều combo nâng cấp nội thất, bodykit, âm thanh...</p>
-        </div>
-      </div>
+      <div class="news-item"><img src="./anhcuong/noibatg63.jpg" alt="News 1"><div class="content"><h3>G63 độ bodykit Brabus 900 Rocket</h3><p>NCT Tuning chính thức mở rộng hoạt động tại miền Bắc với chi nhánh mới khai trương...</p></div></div>
+      <div class="news-item"><img src="./anhcuong/noibatmec.jpg" alt="News 2"><div class="content"><h3>Độ bodykit Maybach</h3><p>NCT Tuning đồng hành cùng sự kiện siêu xe lớn nhất Việt Nam quy tụ hơn 50 mẫu xe độ...</p></div></div>
+      <div class="news-item"><img src="./anhcuong/audi.jpg" alt="News 3"><div class="content"><h3>Độ bodykit Audi TT</h3><p>Chương trình khuyến mãi hấp dẫn với nhiều combo nâng cấp nội thất, bodykit, âm thanh...</p></div></div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-container">
-      <div class="footer-col">
-        <img src="./anhcuong/logo.jpg" alt="Logo NCTuning" class="footer-logo">
-        <p>Cung cấp dịch vụ độ xe chất lượng hàng đầu, nâng tầm đẳng cấp và thẩm mỹ cho các dòng xe sang. Đội ngũ chuyên gia NCTuning luôn sẵn sàng phục vụ bạn.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Điều hướng</h4>
-        <a href="#">Trang chủ</a>
-        <a href="#">Dịch vụ</a>
-        <a href="#">Tin tức</a>
-        <a href="#">Về chúng tôi</a>
-        <a href="#">Liên hệ</a>
-      </div>
-      <div class="footer-col">
-        <h4>Liên hệ</h4>
-        <p><i class="fas fa-map-marker-alt"></i> 21 P. Chu Huy Mân, Phúc Đồng, Long Biên, Hà Nội</p>
-        <p><i class="fas fa-phone"></i>0824.232.222</p>
-        <p><i class="fas fa-envelope"></i> hautoaccess@gmail.com</p>
-      </div>
-      <div class="footer-col">
-        <h4>Kết nối</h4>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
-        <div class="newsletter">
-          <input type="email" placeholder="Nhập email của bạn">
-          <button>Gửi</button>
-        </div>
-      </div>
+      <div class="footer-col"><img src="./anhcuong/logo.jpg" alt="Logo NCTuning"><p>Cung cấp dịch vụ độ xe chất lượng hàng đầu, nâng tầm đẳng cấp và thẩm mỹ cho các dòng xe sang. Đội ngũ chuyên gia NCTuning luôn sẵn sàng phục vụ bạn.</p></div>
+      <div class="footer-col"><h4>Điều hướng</h4><a href="#">Trang chủ</a><a href="#">Dịch vụ</a><a href="#">Tin tức</a><a href="#">Về chúng tôi</a><a href="#">Liên hệ</a></div>
+      <div class="footer-col"><h4>Liên hệ</h4><p><i class="fas fa-map-marker-alt"></i> 21 P. Chu Huy Mân, Phúc Đồng, Long Biên, Hà Nội</p><p><i class="fas fa-phone"></i> 0824.232.222 hoặc 0942.898.484</p><p><i class="fas fa-envelope"></i> ncttuning89@gmail.com</p></div>
+      <div class="footer-col"><h4>Kết nối</h4><div class="social-icons"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div><div class="newsletter"><input type="email" placeholder="Nhập email của bạn"><button>Gửi</button></div></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 NCTuning. All rights reserved.</span>
-      <a href="#top" class="back-to-top"><i class="fas fa-chevron-up"></i> Lên đầu trang</a>
-    </div>
+    <div class="footer-bottom"><span>© 2025 NCTuning. All rights reserved.</span><a href="#top" class="back-to-top"><i class="fas fa-chevron-up"></i> Lên đầu trang</a></div>
   </footer>
 
   <!-- CONTACT BAR -->
   <div class="contact-bar">
-    <span>Cần tư vấn độ xe? Vui lòng liên hệ 0824.232.222</span>
-    <button>Liên hệ ngay</button>
+    <span><i class="fas fa-comments"></i> Cần tư vấn độ xe gọi ngay: </span>
+    <button class="cta-btn"><i class="fas fa-phone-alt"></i>0824.232.222 hoặc 0942.898.484</button>
   </div>
 
   <!-- SLIDER SCRIPT -->
@@ -554,4 +239,3 @@
   </script>
 </body>
 </html>
-	

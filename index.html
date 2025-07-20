@@ -55,7 +55,7 @@
     .brands img:hover { filter:grayscale(0); }
 
     /* TEAM */
-    .team-section { background: #2d2818; color: #fff; padding: 60px 40px;margin-top: 4px; }
+    .team-section { background: #2d2818; color: #fff; padding: 48px 40px;margin-top: 4px; }
     .team-header { text-align:center; max-width:800px; margin:0 auto 40px; }
     .team-header h2 { font-size:32px; margin-bottom:12px; }
     .team-header p { font-size:16px; line-height:1.6; color:#ccc;  font-style: italic;}
@@ -66,12 +66,12 @@
     .team-item { display:flex; align-items:flex-start; gap:20px; margin-bottom:30px; }
     .team-item i { font-size:32px; color:var(--primary-color); min-width:40px; }
     .team-item h3 { font-size:24px; margin-bottom:8px; }
-    .team-item p { font-size:16px; line-height:1.6;  font-style: italic;}
+    .team-item p { font-size:16px; line-height:1.6;  font-style: italic;text-align: justify;}
     @media(max-width:768px){ .team-item { flex-direction:column; align-items:center; text-align:center; }}
 
 
     /* SERVICES */
-    .service-section { background:#282414; color:#fff; padding:60px 40px;margin-top: 4px; }
+    .service-section { background:#282414; color:#fff; padding:48px 40px;margin-top: 4px; }
     .service-section h2 { text-align:center; font-size:36px; margin-bottom:50px; }
     .service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:40px; max-width:1200px; margin:0 auto; }
     .service-box { background:#2a2a2a; border-radius:10px; overflow:hidden; text-align:center; transition:transform 0.3s,box-shadow 0.3s; }
@@ -81,7 +81,7 @@
     .service-box a { color:#fff; text-decoration:none; }
 
     /* NEWS */
-    .news-section { background: linear-gradient(1deg, #ffe9c8, #ffffff);margin-bottom: 5px; padding:60px 40px; }
+    .news-section { background: linear-gradient(1deg, #ffe9c8, #ffffff);margin-bottom: 5px; padding:48px 40px; }
     .news-section h2 { text-align:center; font-size:36px; margin-bottom:40px; color:#000; }
     .news-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; max-width:1200px; margin:0 auto; }
     .news-item { background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
@@ -91,7 +91,7 @@
     .news-item p { font-size:14px; color:#333; }
 
     /* FOOTER */
-    .footer { background:linear-gradient(135deg,#1a1a1a 0%,#111 100%); color:#ddd; padding:60px 40px 20px; }
+    .footer { background:linear-gradient(135deg,#1a1a1a 0%,#111 100%); color:#ddd; padding:50px 40px 20px; }
     .footer-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; max-width:1200px; margin:0 auto; }
     .footer-col h4 { font-size:18px; margin-bottom:16px; color:#fff; position:relative; }
     .footer-col h4::after { content:''; width:40px; height:2px; background:var(--primary-color); position:absolute; bottom:-6px; left:0; }
@@ -125,6 +125,15 @@
     .contact-bar .cta-btn { background:#fff; color:#e74c3c; border:none; padding:12px 24px; font-size:16px; font-weight:600; border-radius:30px; display:flex; align-items:center; gap:10px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2); animation:pulse 2s infinite; transition:transform 0.2s; }
     .contact-bar .cta-btn:hover { transform:scale(1.05); }
     @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0.7);} 50%{box-shadow:0 0 0 10px rgba(255,255,255,0);} }
+
+.qr-code {
+  position: fixed;      /* Cố định vị trí trên viewport */
+  bottom: 62px;         /* Cách đáy 20px */
+  right: 10px;          /* Cách bên phải 20px */
+  z-index: 1001;        /* Nằm trên các phần tử khác */
+  opacity: 0.82;
+
+}
   </style>
 </head>
 <body>
@@ -135,10 +144,10 @@
       <nav class="nav-left">
         <a href="#">Trang chủ</a>
         <a href="#">Dịch vụ</a>
-        <a href="#">Tin tức</a>
+        <a href="https://www.facebook.com/share/1AwzcR5ocy/">Tin tức <img src="./anhcuong/face.png" alt="facebook"></a>
       </nav>
       <div class="logo-container">
-        <img src="./anhcuong/logo.jpg" alt="NCTuning Logo">
+        <img src="./anhcuong/logo.jpg" alt="NCTtuning Logo">
       </div>
       <nav class="nav-right">
         <a href="#">Về chúng tôi</a>
@@ -170,17 +179,17 @@
   <!-- TEAM -->
   <section class="team-section">
     <div class="team-header">
-      <h2>Chào mừng bạn đến với NCTuning</h2>
-      <p>Đến với NCTuning, quý khách hàng sẽ có được trải nghiệm độc đáo từ các dịch vụ độ xe chuyên nghiệp, nâng đời, làm đẹp cho xế yêu của mình cùng với đội ngũ nhân viên giàu kinh nghiệm và tận tâm.</p>
+      <h2>Chào mừng bạn đến với NCTtuning</h2>
+      <p>Đến với NCTtuning, quý khách hàng sẽ có được trải nghiệm độc đáo từ các dịch vụ độ xe chuyên nghiệp, nâng đời, làm đẹp cho xế yêu của mình cùng với đội ngũ nhân viên giàu kinh nghiệm và tận tâm.</p>
     </div>
     <div class="team-container">
       <div class="team-content">
         <div class="team-item"><i class="fas fa-bullseye"></i><div><h3>10 NĂM KINH NGHIỆM</h3><p>Nhiều năm kinh nghiệm giúp chúng tôi hiểu mình cần làm điều gì tốt nhất cho quý khách hàng.</p></div></div>
         <div class="team-item"><i class="fas fa-cogs"></i><div><h3>CHUYÊN MÔN CAO</h3><p>Đội ngũ kỹ thuật viên tay nghề cao và giàu nhiệt huyết hứa hẹn sẽ mang tới chất lượng dịch vụ làm hài lòng quý khách.</p></div></div>
         <div class="team-item"><i class="fas fa-wrench"></i><div><h3>HỖ TRỢ TUYỆT VỜI</h3><p>Tâm huyết và nhiệt tình với khách hàng, chúng tôi cung cấp phong cách phục vụ chuyên nghiệp hàng đầu.</p></div></div>       
-	 <div class="team-item"><i class="fas fa-shield-alt"></i><div><h3>CHÍNH SÁCH BẢO HÀNH</h3><p>Chúng tôi tự hào mang đến chính sách bảo hành linh động và dài hạn, sẵn sàng tiếp nhận và xử lý nhanh chóng các sự cố kĩ thuật đơn giản và minh bạch. Trong suốt quá trình bảo hành, khách hàng được hưởng linh kiện chính hãng và hỗ trợ 24/7, giúp bạn luôn an tâm và tin tưởng tuyệt đối khi sử dụng dịch vụ của chúng tôi.</p></div></div>
+	 <div class="team-item"><i class="fas fa-shield-alt"></i><div><h3>CHÍNH SÁCH BẢO HÀNH</h3><p>Chúng tôi tự hào mang đến chính sách bảo hành linh động và dài hạn, sẵn sàng tiếp nhận và xử lý nhanh chóng các sự cố kĩ thuật đơn giản và minh bạch, giúp bạn luôn an tâm và tin tưởng tuyệt đối khi sử dụng dịch vụ của chúng tôi.</p></div></div>
       </div>
-      <div class="team-image"><img src="./anhcuong/doingu.jpg" alt="Đội ngũ NCTuning"></div>
+      <div class="team-image"><img src="./anhcuong/doingu.jpg" alt="Đội ngũ NCTtuning"></div>
     </div>
   </section>
 
@@ -213,12 +222,12 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-container">
-      <div class="footer-col"><img src="./anhcuong/logo.jpg" alt="Logo NCTuning"><p>Cung cấp dịch vụ độ xe chất lượng hàng đầu, nâng tầm đẳng cấp và thẩm mỹ cho các dòng xe sang. Đội ngũ chuyên gia NCTuning luôn sẵn sàng phục vụ bạn.</p></div>
+      <div class="footer-col"><img src="./anhcuong/logo.jpg" alt="Logo NCTtuning"><p>Cung cấp dịch vụ độ xe chất lượng hàng đầu, nâng tầm đẳng cấp và thẩm mỹ cho các dòng xe sang. Đội ngũ chuyên gia NCTtuning luôn sẵn sàng phục vụ bạn.</p></div>
       <div class="footer-col"><h4>Điều hướng</h4><a href="#">Trang chủ</a><a href="#">Dịch vụ</a><a href="#">Tin tức</a><a href="#">Về chúng tôi</a><a href="#">Liên hệ</a></div>
       <div class="footer-col"><h4>Liên hệ</h4><p><i class="fas fa-map-marker-alt"></i> 21 P. Chu Huy Mân, Phúc Đồng, Long Biên, Hà Nội</p><p><i class="fas fa-phone"></i> 0824.232.222 hoặc 0942.898.484</p><p><i class="fas fa-envelope"></i> ncttuning89@gmail.com</p></div>
       <div class="footer-col"><h4>Kết nối</h4><div class="social-icons"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div><div class="newsletter"><input type="email" placeholder="Nhập email của bạn"><button>Gửi</button></div></div>
     </div>
-    <div class="footer-bottom"><span>© 2025 NCTuning. All rights reserved.</span><a href="#top" class="back-to-top"><i class="fas fa-chevron-up"></i> Lên đầu trang</a></div>
+    <div class="footer-bottom"><span>© 2025 NCTtuning. All rights reserved.</span><a href="#top" class="back-to-top"><i class="fas fa-chevron-up"></i> Lên đầu trang</a></div>
   </footer>
 
   <!-- CONTACT BAR -->
@@ -237,5 +246,8 @@
       slides[idx].classList.add('active');
     }, 4000);
   </script>
+ <div class="qr-code">
+    <img src="./anhcuong/qr-code.jpg" alt="QR Code NCTtuning">
+  </div>
 </body>
 </html>
